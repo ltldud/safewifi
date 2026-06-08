@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F5F7FA">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="#1565C0"
+        android:paddingLeft="16dp">
+
+        <Button
+            android:id="@+id/btnBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="뒤로"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="@android:color/transparent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="주변 Wi-Fi 스캔"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginLeft="8dp" />
+    </LinearLayout>
+
+    <!-- 스캔 컨트롤 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#FFFFFF"
+        android:padding="16dp">
+
+        <Button
+            android:id="@+id/btnScan"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="스캔 시작"
+            android:textSize="15sp"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#2E7D32" />
+
+        <!-- 스캔 중 표시 -->
+        <LinearLayout
+            android:id="@+id/layoutScanStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="10dp"
+            android:visibility="gone">
+
+            <ProgressBar
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginEnd="8dp" />
+
+            <TextView
+                android:id="@+id/tvScanStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="스캔 중..."
+                android:textSize="13sp"
+                android:textColor="#757575" />
+        </LinearLayout>
+
+        <!-- 결과 요약 -->
+        <LinearLayout
+            android:id="@+id/layoutScanSummary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tvTotalCount"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="총 0개"
+                android:textSize="13sp"
+                android:textColor="#757575" />
+
+            <TextView
+                android:id="@+id/tvSafeCount"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="안전 0"
+                android:textSize="13sp"
+                android:textColor="#2E7D32" />
+
+            <TextView
+                android:id="@+id/tvWarningCount"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="주의 0"
+                android:textSize="13sp"
+                android:textColor="#F57F17" />
+
+            <TextView
+                android:id="@+id/tvDangerCount"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="위험 0"
+                android:textSize="13sp"
+                android:textColor="#C62828" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- 빈 상태 -->
+    <LinearLayout
+        android:id="@+id/layoutEmpty"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="스캔 버튼을 눌러\n주변 Wi-Fi를 확인하세요"
+            android:textSize="15sp"
+            android:textColor="#9E9E9E"
+            android:gravity="center" />
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewNearby"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="8dp"
+        android:visibility="gone"
+        android:clipToPadding="false" />
+
+</LinearLayout>
